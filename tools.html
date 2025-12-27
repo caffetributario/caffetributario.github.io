@@ -114,7 +114,7 @@
             <div class="tab-content" id="beps-mli" role="tabpanel">
                 <div class="powerbi-container">
                     <iframe
-                        src="https://app.powerbi.com/view?r=eyJrIjoiYmQ5NGE3M2EtNTdhZi00NTFkLTkxNzEtNzQzMWU0NjBmYTI5IiwidCI6ImFjNDFjN2Q0LTFmNjEtNDYwZC1iMGY0LWZjOTI1YTJiNDcxYyIsImMiOjh9"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiYmQ5NGE3M2EtNTdhZi00NTFkLTkxNzEtNzQzMWU0NjBmYTI5IiwidCI6ImFjNDFjN2Q0LTFmNjEtNDYwZC1iMGY0LWZjOTI1YTJiNDcxYyIsImMiOjh9&navContentPaneEnabled=false&filterPaneEnabled=false"
                         frameborder="0" allowFullScreen="true">
                     </iframe>
                 </div>
@@ -160,6 +160,12 @@
                                 <div class="result-value" id="threshold-value">-- %</div>
                                 <div class="result-label">Tasso Soglia Legale</div>
                             </div>
+
+                            <!-- Visual Gauge -->
+                            <div class="gauge-container">
+                                <div class="gauge-bar" id="gauge-bar"></div>
+                            </div>
+
                             <div class="result-status" id="result-status">Inserisci i dati per la verifica</div>
                             <div
                                 style="font-size: var(--font-size-xs); color: var(--color-gray-400); text-align: center;">
@@ -199,13 +205,13 @@
         const appliedRateInput = document.getElementById('applied-rate');
         const thresholdDisplay = document.getElementById('threshold-value');
         const statusDisplay = document.getElementById('result-status');
+        const gaugeBar = document.getElementById('gauge-bar');
 
         function calculateUsury() {
             const tegm = parseFloat(financingSelect.value);
             const applied = parseFloat(appliedRateInput.value);
 
-            // Formula Legge 108/96: (TEGM * 1.25) + 4%
-            // Lo spread non può superare 8 punti
+            // Formula Legge 108/96
             let threshold = (tegm * 1.25) + 4;
             if ((threshold - tegm) > 8) {
                 threshold = tegm + 8;
@@ -214,13 +220,24 @@
             thresholdDisplay.innerText = threshold.toFixed(2) + ' %';
 
             if (!isNaN(applied)) {
+                // Calculate percentage for gauge (0 to threshold + 5%)
+                const maxScale = threshold + 5;
+                let percentage = (applied / maxScale) * 100;
+                if (percentage > 100) percentage = 100;
+
+                gaugeBar.style.width = percentage + '%';
+
                 if (applied > threshold) {
                     statusDisplay.innerText = "ATTENZIONE: Tasso sopra la soglia legale";
                     statusDisplay.className = "result-status status-danger";
+                    gaugeBar.style.backgroundColor = "#ef4444";
                 } else {
                     statusDisplay.innerText = "Tasso conforme ai limiti di legge";
                     statusDisplay.className = "result-status status-safe";
+                    gaugeBar.style.backgroundColor = "#10b981";
                 }
+            } else {
+                gaugeBar.style.width = '0%';
             }
         }
 

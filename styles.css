@@ -1481,3 +1481,70 @@ button {
         transform: none;
     }
 }
+/* =====================================================
+   Native Search Widget & Calculator Gauge
+   ===================================================== */
+.search-widget {
+    background: #0d1117;
+    padding: var(--spacing-8);
+    border-radius: var(--radius-lg);
+    border: 1px solid #30363d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.terminal-input-group {
+    display: flex;
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+}
+
+.terminal-input {
+    flex: 1;
+    background: #000;
+    border: 1px solid #30363d;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    padding: var(--spacing-4);
+    border-radius: var(--radius-md);
+}
+
+.terminal-input:focus {
+    outline: none;
+    border-color: #238636;
+    box-shadow: 0 0 0 2px rgba(35, 134, 54, 0.4);
+}
+
+.terminal-btn {
+    background: #238636;
+    color: #fff;
+    border: 1px solid rgba(240, 246, 252, 0.1);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-4) var(--spacing-6);
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.terminal-btn:hover {
+    background: #2ea043;
+}
+
+/* Calculator Visual Gauge */
+.gauge-container {
+    height: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    margin-top: var(--spacing-6);
+    position: relative;
+    overflow: hidden;
+}
+
+.gauge-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease, background-color 0.5s ease;
+    border-radius: 6px;
+}
+

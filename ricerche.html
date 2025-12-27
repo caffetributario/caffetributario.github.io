@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Ricerca sentenze tributarie e interpelli Agenzia delle Entrate - Database giuridici integrati per professionisti fiscali.">
+    <meta name="description" content="Ricerca sentenze tributarie e interpelli Agenzia delle Entrate - Database giuridici integrati per professionisti fiscali.">
     <title>Ricerche | Il Caffè Tributario</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Terminal / Secure Connection UI for Ricerche */
@@ -46,23 +43,10 @@
             border-bottom: 1px solid #30363d;
         }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .red {
-            background: #ff5f56;
-        }
-
-        .yellow {
-            background: #ffbd2e;
-        }
-
-        .green {
-            background: #27c93f;
-        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
 
         .scan-line {
             width: 100%;
@@ -76,13 +60,8 @@
         }
 
         @keyframes scan {
-            0% {
-                top: -100px;
-            }
-
-            100% {
-                top: 100%;
-            }
+            0% { top: -100px; }
+            100% { top: 100%; }
         }
 
         .terminal-text {
@@ -91,18 +70,10 @@
             letter-spacing: 0.05em;
         }
 
-        .blink {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
+        .blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
-
 <body>
     <!-- Header -->
     <header class="header" id="header">
@@ -139,51 +110,67 @@
             <div class="tab-content active" id="sentenze">
                 <div class="secure-terminal">
                     <div class="terminal-header">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
-                        <span style="font-size: 10px; margin-left: 10px;">SECURE CONNECTION: CGT_SERVER_NODE_01</span>
+                        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                        <span style="font-size: 10px; margin-left: 10px;">SECURE CONNECTION: CGT_SEARCH_NODE</span>
                     </div>
                     <div class="scan-line"></div>
-                    <p class="terminal-text">
-                        INITIALIZING SECURE GATEWAY...<br>
-                        ESTABLISHING TUNNEL TO GIUSTIZIATRIBUTARIA.GOV.IT<br>
-                        <span style="color: #238636;">STATUS: READY FOR DATA SEARCH</span><span class="blink">_</span>
-                    </p>
-                    <a href="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca" target="_blank"
-                        class="btn btn-primary" style="font-family: 'Inter', sans-serif;">
-                        APRI DATABASE SENTENZE
-                    </a>
+                    <div style="position: relative; z-index: 2; width: 100%; max-width: 600px;">
+                        <p class="terminal-text">
+                            BANCA DATI GIURISPRUDENZA TRIBUTARIA<br>
+                            <span style="color: #238636;">STATUS: READY FOR INPUT</span><span class="blink">_</span>
+                        </p>
+                        
+                        <!-- Native Search Form: Giustizia Tributaria -->
+                        <form action="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca" method="GET" target="_blank" class="search-widget">
+                            <div class="terminal-input-group">
+                                <input type="text" name="testoLibero" class="terminal-input" placeholder="Inserisci parole chiave (es. 'IVA')..." required>
+                            </div>
+                            <div class="terminal-input-group">
+                                <select name="tipoProvvedimento" class="terminal-input" style="cursor: pointer;">
+                                    <option value="12">Tutti i Provvedimenti</option>
+                                    <option value="1">Sentenze</option>
+                                    <option value="2">Ordinanze</option>
+                                </select>
+                                <input type="text" name="annoProvvedimento" class="terminal-input" placeholder="Anno (Es. 2024)" style="max-width: 150px;">
+                            </div>
+                            <button type="submit" class="terminal-btn" style="width: 100%;">
+                                > EXECUTE_SEARCH.EXE
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
 
             <div class="tab-content" id="interpelli">
                 <div class="secure-terminal">
                     <div class="terminal-header">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
+                        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
                         <span style="font-size: 10px; margin-left: 10px;">DATA_CLOUD: ASSOLOMBARDA_NODE</span>
                     </div>
                     <div class="scan-line"></div>
-                    <p class="terminal-text">
-                        CONNECTING TO INTERPELLI REPOSITORY...<br>
-                        MAPPING RESOLUTIONS AND CIRCULARS...<br>
-                        <span style="color: #238636;">SYNC STATUS: 100% COMPLETE</span><span class="blink">_</span>
-                    </p>
-                    <a href="https://www.assolombarda.it/servizi/fisco/portale-interpelli" target="_blank"
-                        class="btn btn-primary" style="font-family: 'Inter', sans-serif;">
-                        ACCEDI AL PORTALE INTERPELLI
-                    </a>
+                    <div style="position: relative; z-index: 2; width: 100%; max-width: 600px;">
+                        <p class="terminal-text">
+                            PORTALE INTERPELLI E RISOLUZIONI<br>
+                            <span style="color: #238636;">SYNC STATUS: CONNECTED</span><span class="blink">_</span>
+                        </p>
+
+                        <!-- Native Search Form: Assolombarda -->
+                        <form action="https://www.assolombarda.it/servizi/fisco/portale-interpelli" method="GET" target="_blank" class="search-widget">
+                            <div class="terminal-input-group">
+                                <input type="text" name="q" class="terminal-input" placeholder="Cerca interpelli (es. 'Credito Imposta')..." required>
+                            </div>
+                            <button type="submit" class="terminal-btn" style="width: 100%;">
+                                > INITIATE_QUERY.SH
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Il Caffè Tributario.</p>
-        </div>
+        <div class="container"><p>&copy; 2025 Il Caffè Tributario.</p></div>
     </footer>
 
     <script>
@@ -197,11 +184,10 @@
                 document.getElementById(btn.dataset.tab).classList.add('active');
             });
         });
-        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
             this.classList.toggle('active');
             document.querySelector('.nav').classList.toggle('active');
         });
     </script>
 </body>
-
 </html>
