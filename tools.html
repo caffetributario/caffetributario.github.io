@@ -32,7 +32,7 @@
                         </svg>
                     </a>
                     <div class="nav-dropdown">
-                        <a href="#tp-guidelines">
+                        <a href="tools.html#tp-guidelines">
                             <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
@@ -40,7 +40,7 @@
                             </svg>
                             TP Guidelines OCSE
                         </a>
-                        <a href="#beps-mli">
+                        <a href="tools.html#beps-mli">
                             <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
@@ -48,7 +48,7 @@
                             </svg>
                             BEPS MLI Database
                         </a>
-                        <a href="#calcolo-tassi">
+                        <a href="tools.html#calcolo-tassi">
                             <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path
@@ -76,8 +76,7 @@
             <span class="section-badge">Strumenti Professionali</span>
             <h1 class="section-title">Tools per la Fiscalità Internazionale</h1>
             <p class="section-subtitle">
-                Accedi a strumenti integrati per Transfer Pricing, convenzioni internazionali
-                e calcoli finanziari. Tutto in un'unica piattaforma.
+                Accesso integrato agli strumenti ufficiali e calcolatori specializzati.
             </p>
         </div>
     </section>
@@ -97,7 +96,7 @@
                 </button>
             </div>
 
-            <!-- Tab 1: TP Guidelines -->
+            <!-- Tab 1: TP Guidelines (EMBEDDABLE) -->
             <div class="tab-content active" id="tp-guidelines" role="tabpanel">
                 <div class="iframe-container">
                     <div class="iframe-loading" id="loading-tp">
@@ -106,39 +105,57 @@
                     </div>
                     <iframe src="https://tpguidelines.com/transfer-pricing-country-profiles/"
                         title="Transfer Pricing Country Profiles - OCSE Guidelines"
-                        onload="document.getElementById('loading-tp').classList.add('hidden')"
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
+                        onload="document.getElementById('loading-tp').classList.add('hidden')" loading="lazy">
                     </iframe>
                 </div>
             </div>
 
-            <!-- Tab 2: BEPS MLI -->
+            <!-- Tab 2: BEPS MLI (BLOCKED - USE NATIVE LAUNCHER) -->
             <div class="tab-content" id="beps-mli" role="tabpanel">
-                <div class="iframe-container">
-                    <div class="iframe-loading" id="loading-beps">
-                        <div class="spinner"></div>
-                        <p>Caricamento BEPS MLI Database...</p>
+                <div class="iframe-fallback">
+                    <div class="fallback-card">
+                        <span class="fallback-icon">🌍</span>
+                        <h3>BEPS MLI Database</h3>
+                        <p>
+                            Accedi al portale ufficiale dell'OCSE per la verifica delle convenzioni bilaterali
+                            modificate dalla Convenzione Multilaterale (MLI).
+                            Per motivi di sicurezza, questo strumento deve essere aperto nel portale originale.
+                        </p>
+                        <a href="https://www.oecd.org/en/data/tools/beps-mli-matching-database.html" target="_blank"
+                            rel="noopener" class="btn btn-primary">
+                            Avvia Strumento OCSE
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </a>
                     </div>
-                    <iframe src="https://www.oecd.org/en/data/tools/beps-mli-matching-database.html"
-                        title="BEPS MLI Matching Database - OECD"
-                        onload="document.getElementById('loading-beps').classList.add('hidden')"
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
-                    </iframe>
                 </div>
             </div>
 
-            <!-- Tab 3: Calcolo Tassi -->
+            <!-- Tab 3: Calcolo Tassi (BLOCKED - USE NATIVE LAUNCHER) -->
             <div class="tab-content" id="calcolo-tassi" role="tabpanel">
-                <div class="iframe-container">
-                    <div class="iframe-loading" id="loading-tassi">
-                        <div class="spinner"></div>
-                        <p>Caricamento Calcolo Tassi ed Interessi...</p>
+                <div class="iframe-fallback">
+                    <div class="fallback-card">
+                        <span class="fallback-icon">🧮</span>
+                        <h3>Calcolo Tassi ed Interessi</h3>
+                        <p>
+                            Calcolatore professionale per tassi di interesse, usura e attualizzazione finanziaria.
+                            Lo strumento si aprirà direttamente nel portale specializzato di AvvocatoAndreani.
+                        </p>
+                        <a href="https://www.avvocatoandreani.it/servizi/calcolo_tasso_usura.php" target="_blank"
+                            rel="noopener" class="btn btn-primary">
+                            Apri Calcolatore
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </a>
                     </div>
-                    <iframe src="https://www.avvocatoandreani.it/servizi/calcolo_tasso_usura.php"
-                        title="Calcolo Tasso Usura e Interessi"
-                        onload="document.getElementById('loading-tassi').classList.add('hidden')"
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
-                    </iframe>
                 </div>
             </div>
         </div>
@@ -202,16 +219,6 @@
             nav.classList.toggle('active');
         });
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
         // Tab switching
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -220,7 +227,6 @@
             btn.addEventListener('click', () => {
                 const tabId = btn.dataset.tab;
 
-                // Update buttons
                 tabBtns.forEach(b => {
                     b.classList.remove('active');
                     b.setAttribute('aria-selected', 'false');
@@ -228,7 +234,6 @@
                 btn.classList.add('active');
                 btn.setAttribute('aria-selected', 'true');
 
-                // Update content
                 tabContents.forEach(content => {
                     content.classList.remove('active');
                 });
@@ -243,40 +248,12 @@
                 const targetBtn = document.querySelector(`[data-tab="${hash}"]`);
                 if (targetBtn) {
                     targetBtn.click();
-                    // Scroll to tabs
-                    setTimeout(() => {
-                        document.querySelector('.tabs-container').scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
                 }
             }
         }
 
         handleHash();
         window.addEventListener('hashchange', handleHash);
-
-        // Handle iframe errors - show fallback
-        document.querySelectorAll('iframe').forEach(iframe => {
-            iframe.onerror = function () {
-                const container = this.parentElement;
-                container.innerHTML = `
-                    <div class="iframe-fallback">
-                        <h3>Accesso Diretto Richiesto</h3>
-                        <p>Questo strumento richiede l'accesso diretto. Clicca il pulsante per aprirlo in una nuova finestra.</p>
-                        <a href="${this.src}" target="_blank" rel="noopener" class="btn btn-primary">
-                            Apri Strumento
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15 3 21 3 21 9"/>
-                                <line x1="10" y1="14" x2="21" y2="3"/>
-                            </svg>
-                        </a>
-                    </div>
-                `;
-            };
-        });
     </script>
 </body>
 

@@ -76,8 +76,7 @@
             <span class="section-badge">Database Giuridici</span>
             <h1 class="section-title">Ricerche Specializzate</h1>
             <p class="section-subtitle">
-                Accedi ai database ufficiali per la ricerca di sentenze tributarie
-                e interpelli dell'Agenzia delle Entrate. Strumenti essenziali per il professionista.
+                Consultazione assistita dei portali giuridici e delle banche dati ufficiali.
             </p>
         </div>
     </section>
@@ -94,33 +93,51 @@
                 </button>
             </div>
 
-            <!-- Tab 1: Sentenze -->
+            <!-- Tab 1: Sentenze (BLOCKED - USE NATIVE LAUNCHER) -->
             <div class="tab-content active" id="sentenze" role="tabpanel">
-                <div class="iframe-container">
-                    <div class="iframe-loading" id="loading-sentenze">
-                        <div class="spinner"></div>
-                        <p>Caricamento Banca Dati Giurisprudenza Tributaria...</p>
+                <div class="iframe-fallback">
+                    <div class="fallback-card">
+                        <span class="fallback-icon">⚖️</span>
+                        <h3>Banca Dati Giurisprudenza</h3>
+                        <p>
+                            Accedi al sistema ufficiale di ricerca per la Giurisprudenza Tributaria.
+                            Naviga tra le sentenze della Corte di Giustizia Tributaria di primo e secondo grado.
+                        </p>
+                        <a href="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca" target="_blank"
+                            rel="noopener" class="btn btn-primary">
+                            Avvia Ricerca Sentenze
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </a>
                     </div>
-                    <iframe src="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca"
-                        title="Banca Dati Giurisprudenza Tributaria - Ricerca Sentenze"
-                        onload="document.getElementById('loading-sentenze').classList.add('hidden')"
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
-                    </iframe>
                 </div>
             </div>
 
-            <!-- Tab 2: Interpelli -->
+            <!-- Tab 2: Interpelli (BLOCKED - USE NATIVE LAUNCHER) -->
             <div class="tab-content" id="interpelli" role="tabpanel">
-                <div class="iframe-container">
-                    <div class="iframe-loading" id="loading-interpelli">
-                        <div class="spinner"></div>
-                        <p>Caricamento Portale Interpelli...</p>
+                <div class="iframe-fallback">
+                    <div class="fallback-card">
+                        <span class="fallback-icon">📋</span>
+                        <h3>Portale Interpelli</h3>
+                        <p>
+                            Consultazione degli interpelli e delle risoluzioni dell'Agenzia delle Entrate.
+                            Lo strumento permette ricerche mirate per argomento e data di pubblicazione.
+                        </p>
+                        <a href="https://www.assolombarda.it/servizi/fisco/portale-interpelli" target="_blank"
+                            rel="noopener" class="btn btn-primary">
+                            Apri Portale Interpelli
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </a>
                     </div>
-                    <iframe src="https://www.assolombarda.it/servizi/fisco/portale-interpelli"
-                        title="Portale Interpelli Agenzia delle Entrate"
-                        onload="document.getElementById('loading-interpelli').classList.add('hidden')"
-                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
-                    </iframe>
                 </div>
             </div>
         </div>
@@ -184,16 +201,6 @@
             nav.classList.toggle('active');
         });
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
         // Tab switching
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -202,7 +209,6 @@
             btn.addEventListener('click', () => {
                 const tabId = btn.dataset.tab;
 
-                // Update buttons
                 tabBtns.forEach(b => {
                     b.classList.remove('active');
                     b.setAttribute('aria-selected', 'false');
@@ -210,7 +216,6 @@
                 btn.classList.add('active');
                 btn.setAttribute('aria-selected', 'true');
 
-                // Update content
                 tabContents.forEach(content => {
                     content.classList.remove('active');
                 });
@@ -225,40 +230,12 @@
                 const targetBtn = document.querySelector(`[data-tab="${hash}"]`);
                 if (targetBtn) {
                     targetBtn.click();
-                    // Scroll to tabs
-                    setTimeout(() => {
-                        document.querySelector('.tabs-container').scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
                 }
             }
         }
 
         handleHash();
         window.addEventListener('hashchange', handleHash);
-
-        // Handle iframe errors - show fallback
-        document.querySelectorAll('iframe').forEach(iframe => {
-            iframe.onerror = function () {
-                const container = this.parentElement;
-                container.innerHTML = `
-                    <div class="iframe-fallback">
-                        <h3>Accesso Diretto Richiesto</h3>
-                        <p>Questo database richiede l'accesso diretto. Clicca il pulsante per aprirlo in una nuova finestra.</p>
-                        <a href="${this.src}" target="_blank" rel="noopener" class="btn btn-primary">
-                            Apri Database
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15 3 21 3 21 9"/>
-                                <line x1="10" y1="14" x2="21" y2="3"/>
-                            </svg>
-                        </a>
-                    </div>
-                `;
-            };
-        });
     </script>
 </body>
 

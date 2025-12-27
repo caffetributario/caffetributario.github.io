@@ -411,6 +411,24 @@
     </footer>
 
     <script>
+        // Dropdown toggle for touch/mobile
+        const navItems = document.querySelectorAll('.nav-item');
+
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    item.classList.toggle('active-dropdown');
+                    const dropdown = item.querySelector('.nav-dropdown');
+                    const isOpen = item.classList.contains('active-dropdown');
+                    dropdown.style.display = isOpen ? 'block' : 'none';
+                    dropdown.style.opacity = isOpen ? '1' : '0';
+                    dropdown.style.visibility = isOpen ? 'visible' : 'hidden';
+                }
+            });
+        });
+
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const nav = document.getElementById('nav');
@@ -422,25 +440,22 @@
 
         // Header scroll effect
         const header = document.getElementById('header');
-        let lastScroll = 0;
-
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
+            if (window.scrollY > 20) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-
-            lastScroll = currentScroll;
         });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
