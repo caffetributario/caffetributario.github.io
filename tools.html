@@ -73,10 +73,10 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <span class="section-badge">Strumenti Professionali</span>
-            <h1 class="section-title">Tools per la Fiscalità Internazionale</h1>
+            <span class="section-badge">Dashboard Professionale</span>
+            <h1 class="section-title">Strumenti di Fiscalità Internazionale</h1>
             <p class="section-subtitle">
-                Accesso integrato agli strumenti ufficiali e calcolatori specializzati.
+                Accesso unificato ai database interattivi OCSE e strumenti di calcolo nativi.
             </p>
         </div>
     </section>
@@ -86,75 +86,86 @@
         <div class="container">
             <div class="tabs-nav" role="tablist">
                 <button class="tab-btn active" data-tab="tp-guidelines" role="tab" aria-selected="true">
-                    📚 TP Guidelines OCSE
+                    📚 OCSE TP Library
                 </button>
                 <button class="tab-btn" data-tab="beps-mli" role="tab" aria-selected="false">
-                    🌍 BEPS MLI Database
+                    🌍 MLI Matching Hub
                 </button>
                 <button class="tab-btn" data-tab="calcolo-tassi" role="tab" aria-selected="false">
-                    🧮 Calcolo Tassi ed Interessi
+                    🧮 Verifica Soglie Usura
                 </button>
             </div>
 
-            <!-- Tab 1: TP Guidelines (EMBEDDABLE) -->
+            <!-- Tab 1: TP Guidelines (ADVANCED MASKING) -->
             <div class="tab-content active" id="tp-guidelines" role="tabpanel">
-                <div class="iframe-container">
+                <div class="masked-iframe-wrapper">
                     <div class="iframe-loading" id="loading-tp">
                         <div class="spinner"></div>
-                        <p>Caricamento TP Guidelines OCSE...</p>
+                        <p>Innesco Sessione Protetta OCSE...</p>
                     </div>
-                    <iframe src="https://tpguidelines.com/transfer-pricing-country-profiles/"
-                        title="Transfer Pricing Country Profiles - OCSE Guidelines"
+                    <iframe id="iframe-tp-guidelines" src="https://tpguidelines.com/transfer-pricing-country-profiles/"
+                        title="TP Country Profiles"
                         onload="document.getElementById('loading-tp').classList.add('hidden')" loading="lazy">
                     </iframe>
                 </div>
             </div>
 
-            <!-- Tab 2: BEPS MLI (BLOCKED - USE NATIVE LAUNCHER) -->
+            <!-- Tab 2: BEPS MLI (DIRECT POWERBI EMBED) -->
             <div class="tab-content" id="beps-mli" role="tabpanel">
-                <div class="iframe-fallback">
-                    <div class="fallback-card">
-                        <span class="fallback-icon">🌍</span>
-                        <h3>BEPS MLI Database</h3>
-                        <p>
-                            Accedi al portale ufficiale dell'OCSE per la verifica delle convenzioni bilaterali
-                            modificate dalla Convenzione Multilaterale (MLI).
-                            Per motivi di sicurezza, questo strumento deve essere aperto nel portale originale.
-                        </p>
-                        <a href="https://www.oecd.org/en/data/tools/beps-mli-matching-database.html" target="_blank"
-                            rel="noopener" class="btn btn-primary">
-                            Avvia Strumento OCSE
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                <polyline points="15 3 21 3 21 9" />
-                                <line x1="10" y1="14" x2="21" y2="3" />
-                            </svg>
-                        </a>
-                    </div>
+                <div class="powerbi-container">
+                    <iframe
+                        src="https://app.powerbi.com/view?r=eyJrIjoiYmQ5NGE3M2EtNTdhZi00NTFkLTkxNzEtNzQzMWU0NjBmYTI5IiwidCI6ImFjNDFjN2Q0LTFmNjEtNDYwZC1iMGY0LWZjOTI1YTJiNDcxYyIsImMiOjh9"
+                        frameborder="0" allowFullScreen="true">
+                    </iframe>
                 </div>
             </div>
 
-            <!-- Tab 3: Calcolo Tassi (BLOCKED - USE NATIVE LAUNCHER) -->
+            <!-- Tab 3: Native Calcolo Tassi (NATIVE JS) -->
             <div class="tab-content" id="calcolo-tassi" role="tabpanel">
-                <div class="iframe-fallback">
-                    <div class="fallback-card">
-                        <span class="fallback-icon">🧮</span>
-                        <h3>Calcolo Tassi ed Interessi</h3>
-                        <p>
-                            Calcolatore professionale per tassi di interesse, usura e attualizzazione finanziaria.
-                            Lo strumento si aprirà direttamente nel portale specializzato di AvvocatoAndreani.
-                        </p>
-                        <a href="https://www.avvocatoandreani.it/servizi/calcolo_tasso_usura.php" target="_blank"
-                            rel="noopener" class="btn btn-primary">
-                            Apri Calcolatore
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                <polyline points="15 3 21 3 21 9" />
-                                <line x1="10" y1="14" x2="21" y2="3" />
-                            </svg>
-                        </a>
+                <div class="native-tool-container">
+                    <div class="calc-grid">
+                        <div class="calc-form">
+                            <h3 class="feature-title"
+                                style="color: var(--color-white); margin-bottom: var(--spacing-4);">Setup Verifica Tassi
+                            </h3>
+                            <div class="form-group">
+                                <label>Tipo di Finanziamento</label>
+                                <select class="form-control" id="financing-type">
+                                    <option value="10.36">Apertura di credito in C/C</option>
+                                    <option value="9.45">Scoperto senza affidamento</option>
+                                    <option value="5.80">Finanziamenti per anticipi su crediti</option>
+                                    <option value="11.20">Credito personale</option>
+                                    <option value="13.15">Cessione del quinto (fino a 15k)</option>
+                                    <option value="10.80">Cessione del quinto (oltre 15k)</option>
+                                    <option value="4.20">Leasing Immobiliare</option>
+                                    <option value="3.95">Mutui Ipotecari (Fisso)</option>
+                                    <option value="4.80">Mutui Ipotecari (Variabile)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tasso Applicato (%)</label>
+                                <input type="number" step="0.01" class="form-control" id="applied-rate"
+                                    placeholder="es. 12.50">
+                            </div>
+                            <div class="form-group">
+                                <label>Trimestre di Riferimento</label>
+                                <select class="form-control">
+                                    <option>Ottobre - Dicembre 2024</option>
+                                    <option>Luglio - Settembre 2024</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="calc-results" id="calc-results">
+                            <div class="result-card">
+                                <div class="result-value" id="threshold-value">-- %</div>
+                                <div class="result-label">Tasso Soglia Legale</div>
+                            </div>
+                            <div class="result-status" id="result-status">Inserisci i dati per la verifica</div>
+                            <div
+                                style="font-size: var(--font-size-xs); color: var(--color-gray-400); text-align: center;">
+                                Fondato sui dati TEGM ufficiali (Banca d'Italia).
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,61 +175,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="index.html" class="footer-logo">
-                        <img src="logo.png" alt="Il Caffè Tributario" class="logo-img">
-                    </a>
-                    <p class="footer-description">
-                        Il tuo punto di riferimento per la fiscalità internazionale
-                        e il transfer pricing.
-                    </p>
-                </div>
-                <div class="footer-links">
-                    <h4 class="footer-title">Tools</h4>
-                    <ul>
-                        <li><a href="#tp-guidelines">TP Guidelines OCSE</a></li>
-                        <li><a href="#beps-mli">BEPS MLI Database</a></li>
-                        <li><a href="#calcolo-tassi">Calcolo Tassi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4 class="footer-title">Ricerche</h4>
-                    <ul>
-                        <li><a href="ricerche.html#sentenze">Sentenze</a></li>
-                        <li><a href="ricerche.html#interpelli">Interpelli</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4 class="footer-title">Contatti</h4>
-                    <ul>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            info@caffetributario.it
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Il Caffè Tributario. Tutti i diritti riservati.</p>
-            </div>
+            <p>&copy; 2025 Il Caffè Tributario. Tutti i diritti riservati.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const nav = document.getElementById('nav');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-
         // Tab switching
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -226,34 +187,59 @@
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.dataset.tab;
-
-                tabBtns.forEach(b => {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-selected', 'false');
-                });
+                tabBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                btn.setAttribute('aria-selected', 'true');
-
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
+                tabContents.forEach(c => c.classList.remove('active'));
                 document.getElementById(tabId).classList.add('active');
             });
         });
 
-        // Handle hash navigation
-        function handleHash() {
-            const hash = window.location.hash.replace('#', '');
-            if (hash) {
-                const targetBtn = document.querySelector(`[data-tab="${hash}"]`);
-                if (targetBtn) {
-                    targetBtn.click();
+        // Native Calculator Logic
+        const financingSelect = document.getElementById('financing-type');
+        const appliedRateInput = document.getElementById('applied-rate');
+        const thresholdDisplay = document.getElementById('threshold-value');
+        const statusDisplay = document.getElementById('result-status');
+
+        function calculateUsury() {
+            const tegm = parseFloat(financingSelect.value);
+            const applied = parseFloat(appliedRateInput.value);
+
+            // Formula Legge 108/96: (TEGM * 1.25) + 4%
+            // Lo spread non può superare 8 punti
+            let threshold = (tegm * 1.25) + 4;
+            if ((threshold - tegm) > 8) {
+                threshold = tegm + 8;
+            }
+
+            thresholdDisplay.innerText = threshold.toFixed(2) + ' %';
+
+            if (!isNaN(applied)) {
+                if (applied > threshold) {
+                    statusDisplay.innerText = "ATTENZIONE: Tasso sopra la soglia legale";
+                    statusDisplay.className = "result-status status-danger";
+                } else {
+                    statusDisplay.innerText = "Tasso conforme ai limiti di legge";
+                    statusDisplay.className = "result-status status-safe";
                 }
             }
         }
 
-        handleHash();
-        window.addEventListener('hashchange', handleHash);
+        financingSelect.addEventListener('change', calculateUsury);
+        appliedRateInput.addEventListener('input', calculateUsury);
+
+        // Mobile menu
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('nav').classList.toggle('active');
+        });
+
+        // Hash navigation
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            const target = document.querySelector(`[data-tab="${hash}"]`);
+            if (target) target.click();
+        });
+        window.dispatchEvent(new Event('hashchange'));
     </script>
 </body>
 

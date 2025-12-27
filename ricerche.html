@@ -12,6 +12,95 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Terminal / Secure Connection UI for Ricerche */
+        .secure-terminal {
+            background: #0d1117;
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-12);
+            border: 1px solid #30363d;
+            box-shadow: var(--shadow-2xl);
+            color: #c9d1d9;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .terminal-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 32px;
+            background: #161b22;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-4);
+            gap: 8px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background: #ff5f56;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #27c93f;
+        }
+
+        .scan-line {
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(0deg, rgba(0, 255, 0, 0) 0%, rgba(0, 255, 0, 0.05) 50%, rgba(0, 255, 0, 0) 100%);
+            position: absolute;
+            top: -100px;
+            left: 0;
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% {
+                top: -100px;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .terminal-text {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-8);
+            letter-spacing: 0.05em;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -23,219 +112,95 @@
             </a>
             <nav class="nav" id="nav">
                 <a href="index.html" class="nav-link">Home</a>
-                <div class="nav-item">
-                    <a href="tools.html" class="nav-link">
-                        Tools
-                        <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M6 9l6 6 6-6" />
-                        </svg>
-                    </a>
-                    <div class="nav-dropdown">
-                        <a href="tools.html#tp-guidelines">
-                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                            TP Guidelines OCSE
-                        </a>
-                        <a href="tools.html#beps-mli">
-                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            BEPS MLI Database
-                        </a>
-                        <a href="tools.html#calcolo-tassi">
-                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                            </svg>
-                            Calcolo Tassi ed Interessi
-                        </a>
-                    </div>
-                </div>
+                <a href="tools.html" class="nav-link">Tools</a>
                 <a href="ricerche.html" class="nav-link active">Ricerche</a>
                 <a href="index.html#attualita" class="nav-link">Attualità</a>
                 <a href="index.html#contatti" class="nav-link">Contatti</a>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
         </div>
     </header>
 
-    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <span class="section-badge">Database Giuridici</span>
-            <h1 class="section-title">Ricerche Specializzate</h1>
-            <p class="section-subtitle">
-                Consultazione assistita dei portali giuridici e delle banche dati ufficiali.
-            </p>
+            <span class="section-badge">Secure Cloud Access</span>
+            <h1 class="section-title">Database Giuridici Federali</h1>
+            <p class="section-subtitle">Connessione crittografata ai portali ufficiali della Giustizia Tributaria.</p>
         </div>
     </section>
 
-    <!-- Tabs Section -->
     <section class="tabs-container">
         <div class="container">
             <div class="tabs-nav" role="tablist">
-                <button class="tab-btn active" data-tab="sentenze" role="tab" aria-selected="true">
-                    ⚖️ Ricerca Sentenze
-                </button>
-                <button class="tab-btn" data-tab="interpelli" role="tab" aria-selected="false">
-                    📋 Portale Interpelli
-                </button>
+                <button class="tab-btn active" data-tab="sentenze">⚖️ Sentenze CGT</button>
+                <button class="tab-btn" data-tab="interpelli">📋 Portale Interpelli</button>
             </div>
 
-            <!-- Tab 1: Sentenze (BLOCKED - USE NATIVE LAUNCHER) -->
-            <div class="tab-content active" id="sentenze" role="tabpanel">
-                <div class="iframe-fallback">
-                    <div class="fallback-card">
-                        <span class="fallback-icon">⚖️</span>
-                        <h3>Banca Dati Giurisprudenza</h3>
-                        <p>
-                            Accedi al sistema ufficiale di ricerca per la Giurisprudenza Tributaria.
-                            Naviga tra le sentenze della Corte di Giustizia Tributaria di primo e secondo grado.
-                        </p>
-                        <a href="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca" target="_blank"
-                            rel="noopener" class="btn btn-primary">
-                            Avvia Ricerca Sentenze
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                <polyline points="15 3 21 3 21 9" />
-                                <line x1="10" y1="14" x2="21" y2="3" />
-                            </svg>
-                        </a>
+            <div class="tab-content active" id="sentenze">
+                <div class="secure-terminal">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span style="font-size: 10px; margin-left: 10px;">SECURE CONNECTION: CGT_SERVER_NODE_01</span>
                     </div>
+                    <div class="scan-line"></div>
+                    <p class="terminal-text">
+                        INITIALIZING SECURE GATEWAY...<br>
+                        ESTABLISHING TUNNEL TO GIUSTIZIATRIBUTARIA.GOV.IT<br>
+                        <span style="color: #238636;">STATUS: READY FOR DATA SEARCH</span><span class="blink">_</span>
+                    </p>
+                    <a href="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca" target="_blank"
+                        class="btn btn-primary" style="font-family: 'Inter', sans-serif;">
+                        APRI DATABASE SENTENZE
+                    </a>
                 </div>
             </div>
 
-            <!-- Tab 2: Interpelli (BLOCKED - USE NATIVE LAUNCHER) -->
-            <div class="tab-content" id="interpelli" role="tabpanel">
-                <div class="iframe-fallback">
-                    <div class="fallback-card">
-                        <span class="fallback-icon">📋</span>
-                        <h3>Portale Interpelli</h3>
-                        <p>
-                            Consultazione degli interpelli e delle risoluzioni dell'Agenzia delle Entrate.
-                            Lo strumento permette ricerche mirate per argomento e data di pubblicazione.
-                        </p>
-                        <a href="https://www.assolombarda.it/servizi/fisco/portale-interpelli" target="_blank"
-                            rel="noopener" class="btn btn-primary">
-                            Apri Portale Interpelli
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                <polyline points="15 3 21 3 21 9" />
-                                <line x1="10" y1="14" x2="21" y2="3" />
-                            </svg>
-                        </a>
+            <div class="tab-content" id="interpelli">
+                <div class="secure-terminal">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <span style="font-size: 10px; margin-left: 10px;">DATA_CLOUD: ASSOLOMBARDA_NODE</span>
                     </div>
+                    <div class="scan-line"></div>
+                    <p class="terminal-text">
+                        CONNECTING TO INTERPELLI REPOSITORY...<br>
+                        MAPPING RESOLUTIONS AND CIRCULARS...<br>
+                        <span style="color: #238636;">SYNC STATUS: 100% COMPLETE</span><span class="blink">_</span>
+                    </p>
+                    <a href="https://www.assolombarda.it/servizi/fisco/portale-interpelli" target="_blank"
+                        class="btn btn-primary" style="font-family: 'Inter', sans-serif;">
+                        ACCEDI AL PORTALE INTERPELLI
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <a href="index.html" class="footer-logo">
-                        <img src="logo.png" alt="Il Caffè Tributario" class="logo-img">
-                    </a>
-                    <p class="footer-description">
-                        Il tuo punto di riferimento per la fiscalità internazionale
-                        e il transfer pricing.
-                    </p>
-                </div>
-                <div class="footer-links">
-                    <h4 class="footer-title">Tools</h4>
-                    <ul>
-                        <li><a href="tools.html#tp-guidelines">TP Guidelines OCSE</a></li>
-                        <li><a href="tools.html#beps-mli">BEPS MLI Database</a></li>
-                        <li><a href="tools.html#calcolo-tassi">Calcolo Tassi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4 class="footer-title">Ricerche</h4>
-                    <ul>
-                        <li><a href="#sentenze">Sentenze</a></li>
-                        <li><a href="#interpelli">Interpelli</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4 class="footer-title">Contatti</h4>
-                    <ul>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            info@caffetributario.it
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Il Caffè Tributario. Tutti i diritti riservati.</p>
-            </div>
+            <p>&copy; 2025 Il Caffè Tributario.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const nav = document.getElementById('nav');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            nav.classList.toggle('active');
-        });
-
-        // Tab switching
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
-
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const tabId = btn.dataset.tab;
-
-                tabBtns.forEach(b => {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-selected', 'false');
-                });
+                tabBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                btn.setAttribute('aria-selected', 'true');
-
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(tabId).classList.add('active');
+                tabContents.forEach(c => c.classList.remove('active'));
+                document.getElementById(btn.dataset.tab).classList.add('active');
             });
         });
-
-        // Handle hash navigation
-        function handleHash() {
-            const hash = window.location.hash.replace('#', '');
-            if (hash) {
-                const targetBtn = document.querySelector(`[data-tab="${hash}"]`);
-                if (targetBtn) {
-                    targetBtn.click();
-                }
-            }
-        }
-
-        handleHash();
-        window.addEventListener('hashchange', handleHash);
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.querySelector('.nav').classList.toggle('active');
+        });
     </script>
 </body>
 
