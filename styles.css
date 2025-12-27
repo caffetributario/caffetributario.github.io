@@ -4,13 +4,13 @@
 
 /* CSS Variables - Design Tokens */
 :root {
-    /* Colors */
-    --color-primary: #0a1628;
-    --color-primary-light: #0f2140;
-    --color-primary-dark: #050d17;
-    --color-accent: #dc2626;
-    --color-accent-hover: #b91c1c;
-    --color-accent-light: #fef2f2;
+    /* Colors - New Burgundy/Navy Palette */
+    --color-primary: #1B365D;
+    --color-primary-light: #2A4A73;
+    --color-primary-dark: #0F1F38;
+    --color-accent: #A51C30;
+    --color-accent-hover: #8B1728;
+    --color-accent-light: #D4A5AD;
     --color-white: #ffffff;
     --color-gray-50: #f8fafc;
     --color-gray-100: #f1f5f9;
@@ -21,7 +21,7 @@
     --color-gray-600: #475569;
     --color-gray-700: #334155;
     --color-gray-800: #1e293b;
-    
+
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-size-xs: 0.75rem;
@@ -34,7 +34,7 @@
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
     --font-size-6xl: 3.75rem;
-    
+
     /* Spacing */
     --spacing-1: 0.25rem;
     --spacing-2: 0.5rem;
@@ -48,7 +48,7 @@
     --spacing-16: 4rem;
     --spacing-20: 5rem;
     --spacing-24: 6rem;
-    
+
     /* Border Radius */
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
@@ -56,15 +56,15 @@
     --radius-xl: 1rem;
     --radius-2xl: 1.5rem;
     --radius-full: 9999px;
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --shadow-glow: 0 0 40px rgba(220, 38, 38, 0.3);
-    
+    --shadow-glow: 0 0 40px rgba(165, 28, 48, 0.3);
+
     /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 300ms ease;
@@ -74,7 +74,9 @@
 /* =====================================================
    Reset & Base Styles
    ===================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -101,7 +103,8 @@ a {
     transition: color var(--transition-fast);
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -249,7 +252,7 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.1) 0%, transparent 40%),
         radial-gradient(circle at 40% 80%, rgba(15, 33, 64, 0.8) 0%, transparent 50%);
@@ -286,8 +289,17 @@ button {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
 }
 
 .hero-title {
@@ -719,7 +731,7 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
     pointer-events: none;
@@ -867,6 +879,7 @@ button {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -874,8 +887,13 @@ button {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* =====================================================
@@ -886,11 +904,11 @@ button {
         grid-template-columns: 1fr;
         gap: var(--spacing-10);
     }
-    
+
     .doc-visual {
         display: none;
     }
-    
+
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -900,7 +918,7 @@ button {
     .mobile-menu-btn {
         display: flex;
     }
-    
+
     .nav {
         position: fixed;
         top: 0;
@@ -915,53 +933,53 @@ button {
         transition: right var(--transition-base);
         gap: var(--spacing-6);
     }
-    
+
     .nav.active {
         right: 0;
     }
-    
+
     .nav-link {
         font-size: var(--font-size-lg);
     }
-    
+
     .hero {
         padding-top: var(--spacing-20);
     }
-    
+
     .hero-stats {
         flex-direction: column;
         gap: var(--spacing-6);
     }
-    
+
     .features-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .news .section-header {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-4);
     }
-    
+
     .news-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .footer-about {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .footer-social {
         justify-content: center;
     }
-    
+
     .footer-contact li {
         justify-content: center;
     }
@@ -971,17 +989,326 @@ button {
     .container {
         padding: 0 var(--spacing-4);
     }
-    
+
     .hero-buttons {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
+    }
+}
+
+/* =====================================================
+   Logo Image Styles
+   ===================================================== */
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.header.scrolled .logo-img {
+    height: 36px;
+}
+
+/* =====================================================
+   Dropdown Menu Styles
+   ===================================================== */
+.nav-item {
+    position: relative;
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2);
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
+}
+
+.nav-item:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(8px);
+}
+
+.nav-dropdown a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
+    color: var(--color-gray-300);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.nav-dropdown a:hover {
+    background: rgba(165, 28, 48, 0.15);
+    color: var(--color-white);
+}
+
+.nav-dropdown-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.dropdown-chevron {
+    width: 12px;
+    height: 12px;
+    margin-left: var(--spacing-1);
+    transition: transform var(--transition-fast);
+}
+
+.nav-item:hover .dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+/* =====================================================
+   Page Header (for subpages)
+   ===================================================== */
+.page-header {
+    padding: calc(var(--spacing-24) + 60px) 0 var(--spacing-12);
+    background: var(--color-primary);
+    text-align: center;
+}
+
+.page-header .section-title {
+    margin-bottom: var(--spacing-4);
+}
+
+.page-header .section-subtitle {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   Tab Navigation
+   ===================================================== */
+.tabs-container {
+    background: var(--color-primary-light);
+    padding: var(--spacing-20) 0;
+    min-height: calc(100vh - 300px);
+}
+
+.tabs-nav {
+    display: flex;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-6);
+    background: rgba(0, 0, 0, 0.2);
+    padding: var(--spacing-2);
+    border-radius: var(--radius-xl);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: var(--spacing-4) var(--spacing-6);
+    background: transparent;
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.tab-btn:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    background: var(--color-accent);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px rgba(165, 28, 48, 0.4);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* =====================================================
+   Iframe Container (Masked Integration)
+   ===================================================== */
+.iframe-container {
+    position: relative;
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-2xl);
+    min-height: 600px;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 800px;
+    border: none;
+    display: block;
+}
+
+.iframe-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-4);
+    z-index: 10;
+    transition: opacity var(--transition-base);
+}
+
+.iframe-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(165, 28, 48, 0.2);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.iframe-loading p {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+}
+
+/* Fallback when iframe blocked */
+.iframe-fallback {
+    padding: var(--spacing-12);
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.iframe-fallback h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-4);
+}
+
+.iframe-fallback p {
+    color: var(--color-gray-400);
+    margin-bottom: var(--spacing-6);
+}
+
+/* =====================================================
+   Tool Cards Grid
+   ===================================================== */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+    margin-top: var(--spacing-8);
+}
+
+.tool-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-8);
+    text-align: center;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(165, 28, 48, 0.3);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+}
+
+.tool-card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, #8B1728 100%);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-6);
+    font-size: 2rem;
+}
+
+.tool-card h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-3);
+}
+
+.tool-card p {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* =====================================================
+   Responsive for New Components
+   ===================================================== */
+@media (max-width: 768px) {
+    .tabs-nav {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .iframe-container iframe {
+        height: 500px;
+    }
+
+    .nav-dropdown {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        background: transparent;
+        border: none;
+        padding: 0;
+        padding-left: var(--spacing-4);
+        box-shadow: none;
+        min-width: auto;
+    }
+
+    .nav-item:hover .nav-dropdown {
+        transform: none;
     }
 }

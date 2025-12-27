@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ricerca sentenze tributarie e interpelli Agenzia delle Entrate - Database giuridici integrati per professionisti fiscali.">
+    <title>Ricerche | Il Caffè Tributario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Il Caffè Tributario" class="logo-img">
+            </a>
+            <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-item">
+                    <a href="tools.html" class="nav-link">
+                        Tools
+                        <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="tools.html#tp-guidelines">
+                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                            TP Guidelines OCSE
+                        </a>
+                        <a href="tools.html#beps-mli">
+                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            BEPS MLI Database
+                        </a>
+                        <a href="tools.html#calcolo-tassi">
+                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                            Calcolo Tassi ed Interessi
+                        </a>
+                    </div>
+                </div>
+                <a href="ricerche.html" class="nav-link active">Ricerche</a>
+                <a href="index.html#attualita" class="nav-link">Attualità</a>
+                <a href="index.html#contatti" class="nav-link">Contatti</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <span class="section-badge">Database Giuridici</span>
+            <h1 class="section-title">Ricerche Specializzate</h1>
+            <p class="section-subtitle">
+                Accedi ai database ufficiali per la ricerca di sentenze tributarie
+                e interpelli dell'Agenzia delle Entrate. Strumenti essenziali per il professionista.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="tabs-container">
+        <div class="container">
+            <div class="tabs-nav" role="tablist">
+                <button class="tab-btn active" data-tab="sentenze" role="tab" aria-selected="true">
+                    ⚖️ Ricerca Sentenze
+                </button>
+                <button class="tab-btn" data-tab="interpelli" role="tab" aria-selected="false">
+                    📋 Portale Interpelli
+                </button>
+            </div>
+
+            <!-- Tab 1: Sentenze -->
+            <div class="tab-content active" id="sentenze" role="tabpanel">
+                <div class="iframe-container">
+                    <div class="iframe-loading" id="loading-sentenze">
+                        <div class="spinner"></div>
+                        <p>Caricamento Banca Dati Giurisprudenza Tributaria...</p>
+                    </div>
+                    <iframe src="https://bancadatigiurisprudenza.giustiziatributaria.gov.it/ricerca"
+                        title="Banca Dati Giurisprudenza Tributaria - Ricerca Sentenze"
+                        onload="document.getElementById('loading-sentenze').classList.add('hidden')"
+                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Tab 2: Interpelli -->
+            <div class="tab-content" id="interpelli" role="tabpanel">
+                <div class="iframe-container">
+                    <div class="iframe-loading" id="loading-interpelli">
+                        <div class="spinner"></div>
+                        <p>Caricamento Portale Interpelli...</p>
+                    </div>
+                    <iframe src="https://www.assolombarda.it/servizi/fisco/portale-interpelli"
+                        title="Portale Interpelli Agenzia delle Entrate"
+                        onload="document.getElementById('loading-interpelli').classList.add('hidden')"
+                        sandbox="allow-same-origin allow-scripts allow-popups allow-forms" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">
+                        <img src="logo.png" alt="Il Caffè Tributario" class="logo-img">
+                    </a>
+                    <p class="footer-description">
+                        Il tuo punto di riferimento per la fiscalità internazionale
+                        e il transfer pricing.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-title">Tools</h4>
+                    <ul>
+                        <li><a href="tools.html#tp-guidelines">TP Guidelines OCSE</a></li>
+                        <li><a href="tools.html#beps-mli">BEPS MLI Database</a></li>
+                        <li><a href="tools.html#calcolo-tassi">Calcolo Tassi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-title">Ricerche</h4>
+                    <ul>
+                        <li><a href="#sentenze">Sentenze</a></li>
+                        <li><a href="#interpelli">Interpelli</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contatti</h4>
+                    <ul>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            info@caffetributario.it
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Il Caffè Tributario. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Tab switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
+
+                // Update buttons
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                // Update content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Handle hash navigation
+        function handleHash() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                const targetBtn = document.querySelector(`[data-tab="${hash}"]`);
+                if (targetBtn) {
+                    targetBtn.click();
+                    // Scroll to tabs
+                    setTimeout(() => {
+                        document.querySelector('.tabs-container').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                }
+            }
+        }
+
+        handleHash();
+        window.addEventListener('hashchange', handleHash);
+
+        // Handle iframe errors - show fallback
+        document.querySelectorAll('iframe').forEach(iframe => {
+            iframe.onerror = function () {
+                const container = this.parentElement;
+                container.innerHTML = `
+                    <div class="iframe-fallback">
+                        <h3>Accesso Diretto Richiesto</h3>
+                        <p>Questo database richiede l'accesso diretto. Clicca il pulsante per aprirlo in una nuova finestra.</p>
+                        <a href="${this.src}" target="_blank" rel="noopener" class="btn btn-primary">
+                            Apri Database
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15 3 21 3 21 9"/>
+                                <line x1="10" y1="14" x2="21" y2="3"/>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+            };
+        });
+    </script>
+</body>
+
+</html>
