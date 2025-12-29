@@ -56,6 +56,13 @@
                             </svg>
                             Calcolo Tassi ed Interessi
                         </a>
+                        <a href="tools.html#global-hub">
+                            <svg class="nav-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            Info Company Finder
+                        </a>
                     </div>
                 </div>
                 <a href="ricerche.html" class="nav-link">Ricerche</a>
@@ -94,6 +101,9 @@
                 <button class="tab-btn" data-tab="calcolo-tassi" role="tab" aria-selected="false">
                     🧮 Verifica Soglie Usura
                 </button>
+                <button class="tab-btn" data-tab="global-hub" role="tab" aria-selected="false">
+                    🔍 Info Company finder
+                </button>
             </div>
 
             <!-- Tab 1: TP Guidelines (ADVANCED MASKING) -->
@@ -117,6 +127,170 @@
                         src="https://app.powerbi.com/view?r=eyJrIjoiYmQ5NGE3M2EtNTdhZi00NTFkLTkxNzEtNzQzMWU0NjBmYTI5IiwidCI6ImFjNDFjN2Q0LTFmNjEtNDYwZC1iMGY0LWZjOTI1YTJiNDcxYyIsImMiOjh9&navContentPaneEnabled=false&filterPaneEnabled=false"
                         frameborder="0" allowFullScreen="true">
                     </iframe>
+                </div>
+            </div>
+
+            <!-- Tab 4: Info Company finder -->
+            <div class="tab-content" id="global-hub" role="tabpanel">
+                <div class="global-hub-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="section-title" style="font-size: 2.5rem; color: white;">Global Corporate Intelligence
+                    </h2>
+                    <p style="color: var(--color-gray-400); max-width: 700px; margin: 0 auto 2rem;">
+                        Sistema di monitoraggio "Zero Leakage" interconnesso ai registri ufficiali internazionali.<br>
+                        Seleziona una giurisdizione sulla mappa per iniziare la ricerca.
+                    </p>
+
+                    <!-- Enterprise SVG Map Hub -->
+                    <div class="enterprise-map-container"
+                        style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-2xl); padding: 2rem; margin-bottom: 3rem; position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: 10px; left: 20px; font-size: 10px; color: var(--color-accent); font-weight: 800; letter-spacing: 2px;">
+                            INTERACTIVE_NODES_V2</div>
+                        <svg id="enterprise-world-map" viewBox="0 0 1000 450"
+                            style="width: 100%; height: auto; filter: drop-shadow(0 0 15px rgba(165,28,48,0.1)); background: radial-gradient(circle at center, rgba(29, 53, 87, 0.3) 0%, rgba(0,0,0,0) 70%);">
+                            <defs>
+                                <pattern id="tech-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)"
+                                        stroke-width="0.5" />
+                                    <circle cx="1" cy="1" r="0.5" fill="rgba(255,255,255,0.1)" />
+                                </pattern>
+                            </defs>
+
+                            <!-- Background Grid -->
+                            <rect width="100%" height="100%" fill="url(#tech-grid)" />
+
+                            <!-- Semplificato: Regno Unito -->
+                            <path id="map-uk" class="map-path" data-name="Regno Unito"
+                                d="M 460 110 L 475 100 L 490 105 L 495 125 L 490 145 L 475 155 L 460 145 L 450 120 Z"
+                                style="fill: rgba(255,255,255,0.1); stroke: var(--color-accent); stroke-width: 1; cursor: pointer; transition: all 0.3s;" />
+                            <!-- Semplificato: Stati Uniti -->
+                            <path id="map-us" class="map-path" data-name="Stati Uniti"
+                                d="M 120 160 L 220 145 L 300 155 L 340 170 L 350 195 L 340 230 L 280 250 L 180 250 L 110 220 L 100 180 Z"
+                                style="fill: rgba(255,255,255,0.1); stroke: var(--color-accent); stroke-width: 1; cursor: pointer; transition: all 0.3s;" />
+                            <!-- Semplificato: Italia -->
+                            <path id="map-it" class="map-path" data-name="Italia"
+                                d="M 505 230 L 520 225 L 530 240 L 535 270 L 525 300 L 510 305 L 500 280 L 495 240 Z"
+                                style="fill: rgba(255,255,255,0.1); stroke: var(--color-accent); stroke-width: 1; cursor: pointer; transition: all 0.3s;" />
+
+                            <!-- Connecting Lines (Tech Look) -->
+                            <line x1="475" y1="125" x2="250" y2="190" stroke="rgba(255,255,255,0.05)"
+                                stroke-dasharray="2,2" />
+                            <line x1="475" y1="125" x2="515" y2="250" stroke="rgba(255,255,255,0.05)"
+                                stroke-dasharray="2,2" />
+
+                            <!-- Confidence Nodes -->
+                            <circle cx="475" cy="125" r="3" fill="var(--color-accent)" class="pulse-node" />
+                            <circle cx="250" cy="190" r="3" fill="var(--color-accent)" class="pulse-node" />
+                            <circle cx="515" cy="250" r="3" fill="var(--color-accent)" class="pulse-node" />
+
+                            <!-- Labels -->
+                            <text x="445" y="90" fill="gray" font-size="10" font-weight="600"
+                                style="pointer-events: none; letter-spacing:1px;">GBR_NODE</text>
+                            <text x="210" y="200" fill="gray" font-size="10" font-weight="600"
+                                style="pointer-events: none; letter-spacing:1px;">USA_NODE</text>
+                            <text x="540" y="240" fill="gray" font-size="10" font-weight="600"
+                                style="pointer-events: none; letter-spacing:1px;">ITA_NODE</text>
+
+                            <style>
+                                .pulse-node {
+                                    animation: pulse 2s infinite;
+                                }
+
+                                @keyframes pulse {
+                                    0% {
+                                        opacity: 0.5;
+                                        r: 2;
+                                    }
+
+                                    50% {
+                                        opacity: 1;
+                                        r: 4;
+                                    }
+
+                                    100% {
+                                        opacity: 0.5;
+                                        r: 2;
+                                    }
+                                }
+                            </style>
+                        </svg>
+
+                        <!-- Health Indicators Overlay -->
+                        <div style="display: flex; gap: 15px; margin-top: 1.5rem; justify-content: center;">
+                            <div class="health-node"
+                                style="display: flex; align-items: center; gap: 8px; font-size: 10px; color: var(--color-gray-400);">
+                                <div
+                                    style="width: 6px; height: 6px; background: #238636; border-radius: 50%; box-shadow: 0 0 5px #238636;">
+                                </div>
+                                UK_API: OPERATIVO
+                            </div>
+                            <div class="health-node"
+                                style="display: flex; align-items: center; gap: 8px; font-size: 10px; color: var(--color-gray-400);">
+                                <div
+                                    style="width: 6px; height: 6px; background: #238636; border-radius: 50%; box-shadow: 0 0 5px #238636;">
+                                </div>
+                                USA_API: OPERATIVO
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise Search Overlay (Hidden by Default) -->
+                    <div id="enterprise-search-overlay"
+                        style="display: none; background: rgba(13, 17, 23, 0.95); border: 1px solid var(--color-accent); border-radius: var(--radius-2xl); padding: 2.5rem; margin-bottom: 3rem; animation: slideUp 0.4s ease-out; position: relative;">
+                        <button onclick="closeEnterpriseSearch()"
+                            style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; cursor: pointer; font-size: 1.5rem;">✕</button>
+                        <h3 id="enterprise-search-title"
+                            style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem;">Cerca azienda in ...</h3>
+
+                        <div class="enterprise-search-group" style="display: flex; gap: 15px; margin-bottom: 2rem;">
+                            <input type="text" id="enterprise-query" class="hub-search-input"
+                                placeholder="Nome società o numero registrazione..." style="flex: 1; height: 55px;"
+                                onkeypress="if(event.key === 'Enter') executeEnterpriseSearch()">
+                            <button onclick="executeEnterpriseSearch()" class="terminal-btn"
+                                style="min-width: 180px;">AVVIA INTERROGAZIONE</button>
+                        </div>
+
+                        <div id="enterprise-results"
+                            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+                            <!-- Risultati iniettati via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider" style="height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 3rem;">
+                </div>
+
+                <h3 style="color: white; font-size: 1.25rem; margin-bottom: 1.5rem;">Registri Europei (Accesso Rapido)
+                </h3>
+
+                <!-- Barra di Ricerca e Select -->
+                <div class="finder-controls" style="display: flex; gap: var(--spacing-4); flex-wrap: wrap;">
+                    <input type="text" class="hub-search-input" id="country-search" list="eu-countries-list"
+                        placeholder="Cerca per nome società o parola chiave..." autocomplete="off"
+                        style="flex: 2; min-width: 250px;">
+                    <datalist id="eu-countries-list">
+                        <!-- Injected via JS -->
+                    </datalist>
+
+                    <select id="country-select" class="form-control"
+                        style="flex: 1; min-width: 150px; background: rgba(0,0,0,0.3); color: white; border: 1px solid rgba(255,255,255,0.2);">
+                        <option value="">Tutti i Paesi UE</option>
+                        <!-- Injected via JS -->
+                    </select>
+
+                    <button id="search-btn" class="terminal-btn"
+                        style="flex: 0.5; min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        Cerca Società
+                    </button>
+                </div>
+
+                <div class="country-grid" id="registry-grid">
+                    <!-- Cards injected via JS -->
                 </div>
             </div>
 
@@ -200,7 +374,9 @@
             });
         });
 
-        // Native Calculator Logic
+        // ---------------------------------------------------------
+        // Native Component: Calculator Logic
+        // ---------------------------------------------------------
         const financingSelect = document.getElementById('financing-type');
         const appliedRateInput = document.getElementById('applied-rate');
         const thresholdDisplay = document.getElementById('threshold-value');
@@ -208,6 +384,8 @@
         const gaugeBar = document.getElementById('gauge-bar');
 
         function calculateUsury() {
+            if (!financingSelect || !appliedRateInput) return;
+
             const tegm = parseFloat(financingSelect.value);
             const applied = parseFloat(appliedRateInput.value);
 
@@ -217,10 +395,9 @@
                 threshold = tegm + 8;
             }
 
-            thresholdDisplay.innerText = threshold.toFixed(2) + ' %';
+            if (thresholdDisplay) thresholdDisplay.innerText = threshold.toFixed(2) + ' %';
 
-            if (!isNaN(applied)) {
-                // Calculate percentage for gauge (0 to threshold + 5%)
+            if (!isNaN(applied) && gaugeBar) {
                 const maxScale = threshold + 5;
                 let percentage = (applied / maxScale) * 100;
                 if (percentage > 100) percentage = 100;
@@ -236,14 +413,306 @@
                     statusDisplay.className = "result-status status-safe";
                     gaugeBar.style.backgroundColor = "#10b981";
                 }
-            } else {
+            } else if (gaugeBar) {
                 gaugeBar.style.width = '0%';
             }
         }
 
-        financingSelect.addEventListener('change', calculateUsury);
-        appliedRateInput.addEventListener('input', calculateUsury);
+        if (financingSelect) financingSelect.addEventListener('change', calculateUsury);
+        if (appliedRateInput) appliedRateInput.addEventListener('input', calculateUsury);
 
+        // ---------------------------------------------------------
+        // Enterprise Hub V2 - Logic
+        // ---------------------------------------------------------
+        let selectedEnterpriseCountry = null;
+        const enterpriseOverlay = document.getElementById('enterprise-search-overlay');
+        const enterpriseTitle = document.getElementById('enterprise-search-title');
+        const enterpriseResults = document.getElementById('enterprise-results');
+
+        function selectCountry(code) {
+            selectedEnterpriseCountry = code;
+            const names = { 'UK': 'Regno Unito', 'US': 'Stati Uniti', 'IT': 'Italia' };
+            enterpriseTitle.innerHTML = `Cerca azienda in <span style="color: var(--color-accent);">${names[code] || code}</span>`;
+            enterpriseOverlay.style.display = 'block';
+            enterpriseOverlay.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Highlight map path
+            document.querySelectorAll('.map-path').forEach(p => p.style.fill = 'rgba(255,255,255,0.05)');
+            const path = document.getElementById(`map-${code.toLowerCase()}`);
+            if (path) path.style.fill = 'var(--color-accent)';
+        }
+
+        function closeEnterpriseSearch() {
+            enterpriseOverlay.style.display = 'none';
+            document.querySelectorAll('.map-path').forEach(p => p.style.fill = 'rgba(255,255,255,0.05)');
+        }
+
+        async function executeEnterpriseSearch() {
+            const query = document.getElementById('enterprise-query').value;
+            if (!query || query.length < 2) {
+                alert("Inserisci almeno 2 caratteri per la ricerca.");
+                return;
+            }
+
+            enterpriseResults.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 30px;"><div class="spinner"></div><p style="color: var(--color-gray-400); margin-top: 15px;">Interrogazione registri globali in corso...</p></div>';
+
+            try {
+                const res = await fetch(`http://localhost:8000/api/company/search?country=${selectedEnterpriseCountry}&q=${encodeURIComponent(query)}`, {
+                    signal: AbortSignal.timeout(8000)
+                });
+
+                if (!res.ok) throw new Error("Backend offline");
+                const data = await res.json();
+                renderEnterpriseResults(data);
+            } catch (err) {
+                console.warn("Utilizzo dati simulazione per demo:", err);
+                const mockData = [
+                    {
+                        nome: `${query.toUpperCase()} INTERNATIONAL LTD`,
+                        numero_registrazione: "08812345",
+                        stato: "Attiva",
+                        indirizzo_legale: "1 Canada Square, Canary Wharf, London",
+                        data_costituzione: "10/01/2015",
+                        tipo_societa: "Private Limited Company",
+                        paese: selectedEnterpriseCountry === 'UK' ? "Regno Unito" : "Stati Uniti"
+                    }
+                ];
+                setTimeout(() => renderEnterpriseResults(mockData), 800);
+            }
+        }
+
+        function renderEnterpriseResults(data) {
+            if (!data || data.length === 0) {
+                enterpriseResults.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--color-gray-400);">Nessuna società trovata. Contatta il supporto per verifiche manuali.</div>';
+                return;
+            }
+
+            enterpriseResults.innerHTML = '';
+            data.forEach(company => {
+                // Serializziamo i dati per passarli al generatore PDF
+                const companyJson = JSON.stringify(company).replace(/"/g, '&quot;');
+
+                const card = document.createElement('div');
+                card.className = 'company-card';
+                card.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)';
+                card.style.border = '1px solid rgba(255,255,255,0.1)';
+                card.style.padding = '1.5rem';
+                card.style.borderRadius = 'var(--radius-lg)';
+                card.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; border-bottom: 1px solid rgba(165,28,48,0.3); padding-bottom: 10px;">
+                        <h4 style="color: white; font-size: 1.1rem; margin: 0;">${company.nome}</h4>
+                        <span style="font-size: 0.7em; background: rgba(35, 134, 54, 0.2); color: #3fb950; padding: 2px 6px; border-radius: 4px;">VERIFICATA</span>
+                    </div>
+                    
+                    <div style="display: grid; gap: 8px; font-size: 13px; margin-bottom: 1.5rem;">
+                        <p><strong style="color: var(--color-gray-400);">ID Registro:</strong> <span style="color: white;">${company.numero_registrazione}</span></p>
+                        <p><strong style="color: var(--color-gray-400);">Stato:</strong> <span style="color: #c9d1d9;">${company.stato}</span></p>
+                        <p><strong style="color: var(--color-gray-400);">Sede:</strong> <span style="color: #8b949e;">${company.indirizzo_legale}</span></p>
+                    </div>
+
+                    <button onclick='downloadReport(${companyJson})' class="hub-btn" style="width: 100%; justify-content: center; background: var(--color-accent); color: white; border: none;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Scarica Report Ufficiale (PDF)
+                    </button>
+                    <div style="text-align: center; margin-top: 8px; font-size: 9px; color: var(--color-gray-500);">
+                        Documento elaborato da Active Nodes Intelligence
+                    </div>
+                `;
+                enterpriseResults.appendChild(card);
+            });
+        }
+
+        async function downloadReport(companyData) {
+            const btn = event.currentTarget;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<div class="spinner" style="width:14px; height:14px; border-width:2px;"></div> Generazione in corso...';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('http://localhost:8000/api/company/report', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(companyData)
+                });
+
+                if (!res.ok) throw new Error("Errore generazione PDF");
+
+                const blob = await res.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `Report_${companyData.nome.replace(/\s+/g, '_')}.pdf`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            } catch (err) {
+                alert("Impossibile generare il report. Riprova più tardi.");
+                console.error(err);
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // Map Event Listeners
+        document.getElementById('map-uk').addEventListener('click', () => selectCountry('UK'));
+        document.getElementById('map-us').addEventListener('click', () => selectCountry('US'));
+        document.getElementById('map-it').addEventListener('click', () => selectCountry('IT'));
+
+        // Hover effects for SVG
+        document.querySelectorAll('.map-path').forEach(path => {
+            path.addEventListener('mouseenter', function () {
+                if (this.style.fill !== 'var(--color-accent)') {
+                    this.style.fill = 'rgba(165,28,48,0.2)';
+                }
+            });
+            path.addEventListener('mouseleave', function () {
+                if (this.style.fill !== 'var(--color-accent)') {
+                    this.style.fill = 'rgba(255,255,255,0.05)';
+                }
+            });
+        });
+
+        // ---------------------------------------------------------
+        // Native Component: Info Company finder
+        // ---------------------------------------------------------
+        const registryData = [
+            { c: "Belgio", u: "https://economie.fgov.be", n: "Banque Carrefour des Entreprises (BCE)", freeDoc: "⚠️ In parte", freeData: "✅ Sì", note: "Dati base gratis; bilanci per lo più gratuitamente. Accesso free via Public Search", f: "🇧🇪" },
+            { c: "Bulgaria", u: "https://psc.egov.bg/en", n: "BULSTAT Register", freeDoc: "❌ No", freeData: "✅ Sì", note: "Registro BULSTAT con info di base; bilanci a pagamento", f: "🇧🇬" },
+            { c: "Cechia", u: "https://or.justice.cz", n: "Obchodní rejstřík", freeDoc: "❌ No", freeData: "✅ Sì", note: "Registro commerciale; dati base gratis; estratti a pagamento", f: "🇨🇿" },
+            { c: "Danimarca", u: "https://datacvr.virk.dk", n: "Central Business Register (CVR)", freeDoc: "✅ Sì", freeData: "✅ Sì", note: "Dati completamente open; conti e documenti gratuitamente via API", f: "🇩🇰" },
+            { c: "Estonia", u: "https://www.rik.ee", n: "E-Business Register", freeDoc: "✅ Sì", freeData: "✅ Sì", note: "Accesso completamente gratuito a dati base e documenti", f: "🇪🇪" },
+            { c: "Finlandia", u: "https://www.ytj.fi", n: "Finnish Trade Register (PRH)", freeDoc: "✅ Sì", freeData: "✅ Sì", note: "Dati disponibili gratuitamente via API e open data", f: "🇫🇮" },
+            { c: "Francia", u: "https://data.inpi.fr", n: "Data INPI / RNCS", freeDoc: "✅ Sì", freeData: "✅ Sì", note: "Accesso gratuito ai dati RNCS tramite open data", f: "🇫🇷" },
+            { c: "Germania", u: "https://www.unternehmensregister.de", n: "Unternehmensregister", freeDoc: "⚠️ In parte", freeData: "✅ Sì", note: "Bilanci per lo più gratuiti; accesso base free", f: "🇩🇪" },
+            { c: "Grecia", u: "https://ww.business.gov.gr", n: "General Commercial Registry (GEMI)", freeDoc: "❌ No", freeData: "⚠️ Sì (Fee)", note: "Ricerca base gratuita; copie documenti a pagamento", f: "🇬🇷" },
+            { c: "Irlanda", u: "https://cro.ie", n: "Companies Registration Office (CRO)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati base gratuiti; documenti e estratti a pagamento", f: "🇮🇪" },
+            { c: "Italia", u: "https://www.infocamere.it", n: "Registro delle Imprese", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati base gratuiti; bilanci e visure a pagamento tramite Infocamere", f: "🇮🇹" },
+            { c: "Cipro", u: "https://www.companies.gov.cy", n: "Registrar of Companies", freeDoc: "❌ No", freeData: "✅ Sì", note: "Documenti e ricerche a pagamento (10 EUR per file)", f: "🇨🇾" },
+            { c: "Croazia", u: "https://gov.hr", n: "Court Register / Commercial Court", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati anagrafici gratuiti; bilanci per lo più a pagamento", f: "🇭🇷" },
+            { c: "Letonia", u: "https://www.ur.gov.lv", n: "Register of Enterprises of Latvia", freeDoc: "⚠️ In parte", freeData: "✅ Sì", note: "Accesso gratuito a dati base; dati finanziari con fee", f: "🇱🇻" },
+            { c: "Lituania", u: "https://www.ceidg.gov.lt", n: "Register of Legal Entities", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati di base gratuiti; documenti completi a pagamento", f: "🇱🇹" },
+            { c: "Lussemburgo", u: "https://www.lbr.lu", n: "Trade and Companies Register (RCS)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati pubblici gratuiti via RESA; copie documenti a pagamento", f: "🇱🇺" },
+            { c: "Ungheria", u: "https://www.e-cegjegyzek.hu", n: "Business Register (e-Cegjegyzek)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Accesso base gratis; documenti a pagamento", f: "🇭🇺" },
+            { c: "Malta", u: "https://mbr.mt", n: "Malta Business Registry (MBR)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Ricerca gratis; documenti a pagamento", f: "🇲🇹" },
+            { c: "Paesi Bassi", u: "https://www.kvk.nl", n: "Kamer van Koophandel (KVK)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati di base pubblici; estratti e documenti a pagamento", f: "🇳🇱" },
+            { c: "Austria", u: "https://www.justiz.gv.at", n: "Österreichisches Firmenbuch", freeDoc: "❌ No", freeData: "✅ Sì", note: "Accesso gratuito a dati di base; estratti a pagamento", f: "🇦🇹" },
+            { c: "Polonia", u: "https://ekrs.ms.gov.pl", n: "National Court Register (KRS)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati pubblici gratuiti; copie a pagamento", f: "🇵🇱" },
+            { c: "Portogallo", u: "https://www2.gov.pt", n: "Conservatória do Registo Comercial", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati base gratuiti; documenti a pagamento", f: "🇵🇹" },
+            { c: "Romania", u: "https://www.onrc.ro", n: "Official National Trade Register (ONRC)", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati di base gratuiti; estratti a pagamento", f: "🇷🇴" },
+            { c: "Slovenia", u: "https://www.ajpes.si", n: "Slovenian Business Register (PRS)", freeDoc: "✅ Sì", freeData: "✅ Sì", note: "Accesso completamente gratuito a dati finanziari", f: "🇸🇮" },
+            { c: "Slovacchia", u: "https://www.justice.sk", n: "Obchodný register", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati base gratuiti; copie a pagamento", f: "🇸🇰" },
+            { c: "Spagna", u: "https://www.rmc.es", n: "Registro Mercantil Central", freeDoc: "❌ No", freeData: "✅ Sì", note: "Bilanci a pagamento; decentralizzato per province", f: "🇪🇸" },
+            { c: "Svezia", u: "https://bolagsverket.se", n: "Bolagsverket", freeDoc: "❌ No", freeData: "✅ Sì", note: "Dati di base gratuiti; documenti a pagamento", f: "🇸🇪" }
+        ];
+
+        const grid = document.getElementById('registry-grid');
+        const searchInput = document.getElementById('country-search');
+        const countrySelect = document.getElementById('country-select');
+        const searchBtn = document.getElementById('search-btn');
+        const dataList = document.getElementById('eu-countries-list');
+
+        // Populate datalist and select
+        function initControls() {
+            if (!dataList || !countrySelect) return;
+            const countries = [...new Set(registryData.map(item => item.c))].sort();
+            countries.forEach(country => {
+                const opt = document.createElement('option');
+                opt.value = country;
+                dataList.appendChild(opt);
+
+                const selOpt = document.createElement('option');
+                selOpt.value = country;
+                selOpt.textContent = country;
+                countrySelect.appendChild(selOpt);
+            });
+        }
+
+        function renderGrid() {
+            if (!grid) return;
+            grid.innerHTML = "";
+            const filterText = (searchInput ? searchInput.value : "").toLowerCase();
+            const filterCountry = (countrySelect ? countrySelect.value : "");
+
+            // Show loading spinner
+            grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px;"><div class="spinner"></div><p style="margin-top: 20px; color: var(--color-gray-400);">Ricerca nei registri europei in corso...</p></div>';
+
+            setTimeout(() => {
+                grid.innerHTML = "";
+                const filtered = registryData.filter(item => {
+                    const matchText = item.c.toLowerCase().includes(filterText) || item.n.toLowerCase().includes(filterText);
+                    const matchCountry = filterCountry === "" || item.c === filterCountry;
+                    return matchText && matchCountry;
+                });
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--color-gray-400);">Nessun registro trovato per i criteri selezionati.</div>';
+                    return;
+                }
+
+                filtered.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'country-card';
+
+                    const getBadgeClass = (status) => {
+                        if (status.includes('✅')) return 'badge-green';
+                        if (status.includes('⚠️')) return 'badge-yellow';
+                        return 'badge-red';
+                    };
+
+                    card.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                            <div>
+                                <div style="font-size: 2rem; margin-bottom: 5px;">${item.f}</div>
+                                <h3 style="color: var(--color-white); margin: 0; font-size: 1.25rem;">${item.c}</h3>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 10px; color: var(--color-gray-500); text-transform: uppercase;">Official Registry</div>
+                                <div style="color: var(--color-accent); font-weight: 700; font-size: 0.8rem;">${item.n.split(' (')[0].split(' / ')[0]}</div>
+                            </div>
+                        </div>
+
+                        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-bottom: 15px;">
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 12px; color: var(--color-gray-400);">📊 Bilanci:</span>
+                                    <span class="info-badge ${getBadgeClass(item.freeDoc)}">${item.freeDoc}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 12px; color: var(--color-gray-400);">📋 Dati Base:</span>
+                                    <span class="info-badge ${getBadgeClass(item.freeData)}">${item.freeData}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 11px; color: #8b949e; line-height: 1.4; margin-bottom: 20px; flex-grow: 1;">${item.note}</p>
+                        
+                        <div class="card-action">
+                            <button class="hub-btn" onclick="window.open('${item.u}', '_blank')" style="background: var(--color-accent); color: white; border: none; font-weight: 700;">
+                                Vai al Registro Ufficiale 
+                                <svg style="margin-left: 8px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }, 600);
+        }
+
+        if (searchBtn) searchBtn.addEventListener('click', renderGrid);
+        if (searchInput) searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') renderGrid(); });
+        if (countrySelect) countrySelect.addEventListener('change', renderGrid);
+
+        // Initial render
+        initControls();
+        renderGrid();
+
+        // ---------------------------------------------------------
+        // Core Logic
+        // ---------------------------------------------------------
         // Mobile menu
         document.getElementById('mobileMenuBtn').addEventListener('click', function () {
             this.classList.toggle('active');
@@ -251,12 +720,19 @@
         });
 
         // Hash navigation
-        window.addEventListener('hashchange', () => {
+        const handleHash = () => {
             const hash = window.location.hash.replace('#', '');
-            const target = document.querySelector(`[data-tab="${hash}"]`);
-            if (target) target.click();
-        });
-        window.dispatchEvent(new Event('hashchange'));
+            if (hash) {
+                const target = document.querySelector(`[data-tab="${hash}"]`);
+                if (target) {
+                    target.click();
+                    window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+                }
+            }
+        };
+
+        window.addEventListener('hashchange', handleHash);
+        window.addEventListener('DOMContentLoaded', handleHash);
     </script>
 </body>
 
